@@ -5,7 +5,7 @@ final FULL_BUILD = params.FULL_BUILD
 // HOST_PROVISION -> server to run ansible based on provision/inventory.ini
 final HOST_PROVISION = params.HOST_PROVISION
 
-final GIT_URL = 'https://github.com/ricardozanini/soccer-stats.git'
+final GIT_URL = 'https://github.com/Djrohith/soccer-stats.git'
 final NEXUS_URL = '34.221.40.216:8081'
 
 stage('Build') {
