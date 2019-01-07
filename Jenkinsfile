@@ -13,7 +13,7 @@ stage('Build') {
         git GIT_URL
         withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
             if(FULL_BUILD) {
-                def pom = readMavenPom file: 'pom.xml'
+                def pom = readMavenPom file: '/var/lib/jenkins/jobs/Pipeline-Demo/workspace/pom.xml'
                 sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
                 sh "mvn -B -Dmaven.test.skip=true clean package"
                 stash name: "artifact", includes: "target/soccer-stats-*.war"
