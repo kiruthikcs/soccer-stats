@@ -90,7 +90,7 @@ if(FULL_BUILD) {
     }
 }
 
-
+/**
 stage('Deploy') {
     node {
         def pom = readMavenPom file: "pom.xml"
@@ -121,5 +121,5 @@ stage('Deploy') {
             sudo: true,
             sudoUser: 'jenkins'
         }
-    }
+    } **/
 }
