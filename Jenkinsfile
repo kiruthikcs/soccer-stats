@@ -75,13 +75,7 @@ if(FULL_BUILD) {
 if(FULL_BUILD) {
     stage('Artifact Upload') {
         node {
-            unstash 'artifact'
-
-            def pom = readMavenPom file: 'pom.xml'
-            def file = "${pom.artifactId}-${pom.version}"
-            def jar = "target/${file}.war"
-
-            sh "cp pom.xml ${file}.pom"
+           
             
             nexusArtifactUploader artifacts: [[artifactId: 'soccer-stats', classifier: '', file: 'target/soccer-stats.0.0.2.war', type: 'war']], credentialsId: '92a0b40b-83c4-4a1f-a901-a5859bbcb4a4', groupId: 'br.com.meetup.ansible', nexusUrl: '34.221.40.216:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'demo-snap', version: '0.0.2'
 
