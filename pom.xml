@@ -128,6 +128,18 @@
 			</plugin>
 		</plugins>
 	</build>
+	 <distributionManagement>
+        <repository>
+            <id>deployment</id>
+            <name>Internal Releases</name>
+            <url>http://34.221.40.216:8081/repository/demoapp-rele/</url>
+        </repository>
+        <snapshotRepository>
+            <id>deployment</id>
+            <name>Internal Snapshot Releases</name>
+            <url>http://34.221.40.216:8081/repository/demo-snap/</url>
+        </snapshotRepository>
+    </distributionManagement>
 	<profiles>
 
 		<profile>
