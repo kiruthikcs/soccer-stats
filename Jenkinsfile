@@ -13,10 +13,14 @@ stage('Build') {
         git GIT_URL
         withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
             if(FULL_BUILD) {
-                def pom = readMavenPom file: '/var/lib/jenkins/jobs/Pipeline-Demo/workspace/pom.xml'
-                sh "mvn -B versions:set -DnewVersion=${pom.version}-${BUILD_NUMBER}"
-                sh "mvn -B -Dmaven.test.skip=true clean package"
-                stash name: "artifact", includes: "target/soccer-stats-*.war"
+                mvnHome = tool 'M3'
+                
+                 if (isUnix()) {
+         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+      } else {
+         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+      }
+                
             }
         }
     }
@@ -77,18 +81,10 @@ if(FULL_BUILD) {
             def jar = "target/${file}.war"
 
             sh "cp pom.xml ${file}.pom"
+            
+            nexusArtifactUploader artifacts: [[artifactId: 'soccer-stats', classifier: '', file: 'target/soccer-stats.0.0.2.war', type: 'war']], credentialsId: '92a0b40b-83c4-4a1f-a901-a5859bbcb4a4', groupId: 'br.com.meetup.ansible', nexusUrl: '34.221.40.216:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'demo-snap', version: '0.0.2'
 
-            nexusArtifactUploader artifacts: [
-                    [artifactId: "${pom.artifactId}", classifier: '', file: "target/${file}.war", type: 'war'],
-                    [artifactId: "${pom.artifactId}", classifier: '', file: "${file}.pom", type: 'pom']
-                ], 
-                credentialsId: 'nexus', 
-                groupId: "${pom.groupId}", 
-                nexusUrl: NEXUS_URL, 
-                nexusVersion: 'nexus3', 
-                protocol: 'http', 
-                repository: 'ansible-meetup', 
-                version: "${pom.version}"        
+             
         }
     }
 }
