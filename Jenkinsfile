@@ -13,7 +13,7 @@ stage('Build') {
         git GIT_URL
         withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
             if(FULL_BUILD) {
-                mvnHome = tool 'M3'
+                mvnHome = tool 'm3'
                 sh "echo 'inside build'"
                 
                  if (isUnix()) {
