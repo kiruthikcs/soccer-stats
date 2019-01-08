@@ -14,6 +14,7 @@ stage('Build') {
         withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
             if(FULL_BUILD) {
                 mvnHome = tool 'M3'
+                sh "echo 'inside build'"
                 
                  if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
