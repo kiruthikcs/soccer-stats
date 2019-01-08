@@ -130,12 +130,12 @@
 	</build>
 	 <distributionManagement>
         <repository>
-            <id>deployment</id>
+            <id>localnexus</id>
             <name>Internal Releases</name>
             <url>http://34.221.40.216:8081/repository/demoapp-rele/</url>
         </repository>
         <snapshotRepository>
-            <id>deployment</id>
+            <id>localnexus</id>
             <name>Internal Snapshot Releases</name>
             <url>http://34.221.40.216:8081/repository/demo-snap/</url>
         </snapshotRepository>
@@ -163,9 +163,9 @@
 						<extensions>true</extensions>
 						<configuration>
 							<!-- The Base URL of Nexus instance where we want to stage -->
-							<nexusUrl>${NEXUS_URL}</nexusUrl>
+							<nexusUrl>http://34.221.40.216:8081/</nexusUrl>
 							<!-- The server "id" element from settings to use authentication from -->
-							<serverId>nexuslocal</serverId>
+							<serverId>localnexus</serverId>
 						</configuration>
 					</plugin>
 				</plugins>
