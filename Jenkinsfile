@@ -17,6 +17,7 @@ stage('Build') {
                 sh "echo 'inside build'"
                 
                  if (isUnix()) {
+                     sh "mvn -B versions:set -DnewVersion=0.0.2-${BUILD_NUMBER}"
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
@@ -77,7 +78,7 @@ if(FULL_BUILD) {
         node {
            
             
-            nexusArtifactUploader artifacts: [[artifactId: 'soccer-stats', classifier: '', file: 'target/soccer-stats-0.0.2.war', type: 'war']], credentialsId: '92a0b40b-83c4-4a1f-a901-a5859bbcb4a4', groupId: 'br.com.meetup.ansible', nexusUrl: '34.221.40.216:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'demoapp-rele', version: '0.0.2'
+            nexusArtifactUploader artifacts: [[artifactId: 'soccer-stats', classifier: '', file: 'target/soccer-stats-0.0.2.war', type: 'war']], credentialsId: '92a0b40b-83c4-4a1f-a901-a5859bbcb4a4', groupId: 'br.com.meetup.ansible', nexusUrl: '34.221.40.216:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'demoapp-rele', version: '0.0.2-${BUILD_NUMBER}'
 
              
         }
