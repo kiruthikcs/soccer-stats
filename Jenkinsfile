@@ -82,7 +82,7 @@ if(FULL_BUILD) {
                                                artifactId: 'soccer-stats', classifier: '',
                                                file: 'target/soccer-stats-0.0.2-${BUILD_NUMBER}.war', type: 'war']],
                 credentialsId: '92a0b40b-83c4-4a1f-a901-a5859bbcb4a4', 
-                groupId: 'br.com.meetup.ansible', nexusUrl: '${NEXUS_URL}', nexusVersion: 'nexus3', 
+                groupId: 'br.com.meetup.ansible', nexusUrl: ${NEXUS_URL}, nexusVersion: 'nexus3', 
                 protocol: 'http', repository: 'demoapp-rele', version: '0.0.2-${BUILD_NUMBER}'
 
              
