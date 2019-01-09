@@ -103,7 +103,7 @@ stage('Deploy') {
             ansiblePlaybook become: true,
             colorized: true, credentialsId: 'ansible', disableHostKeyChecking: true, 
             installation: 'ansible', inventory: 'provision/inventory.ini', 
-            playbook: 'provision/playbook.yml', sudo: true
+            playbook: 'provision/playbook.yml'
 
             /**ansiblePlaybook colorized: true, 
             credentialsId: 'ssh-jenkins',
