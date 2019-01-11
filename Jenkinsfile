@@ -118,9 +118,11 @@ stage('Deploy') {
          
             ansiblePlaybook become: true, colorized: true, 
                 credentialsId: 'ansible', disableHostKeyChecking: true,              
-                extras: 'ARTIFACT_URL="${artifactUrl}" APP_NAME=soccer-demo',
+                //extras: 'ARTIFACT_URL="${artifactUrl}" APP_NAME=soccer-demo',
                 inventory: 'provision/inventory.ini',
-                playbook: 'provision/playbook.yml'
+                playbook: 'provision/playbook.yml',
+                sudo: true,
+                sudoUser: 'jenkins'
 
             /**ansiblePlaybook colorized: true, 
             credentialsId: 'ssh-jenkins',
