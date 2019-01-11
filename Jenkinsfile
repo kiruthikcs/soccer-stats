@@ -117,7 +117,7 @@ stage('Deploy') {
          
          ansiblePlaybook colorized: true, 
             credentialsId: 'playbook',
-            limit: "${HOST_PROVISION}",
+            //limit: "${HOST_PROVISION}",
             installation: 'ansible',
             inventory: 'provision/inventory.ini', 
             playbook: 'provision/playbook.yml', 
