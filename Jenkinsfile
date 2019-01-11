@@ -111,8 +111,8 @@ stage('Deploy') {
             sh "ansible-galaxy install -vvv -r provision/requirements.yml -p provision/roles/"    
                        
             ansiblePlaybook become: true, colorized: true, 
-                limit: "${HOST_PROVISION}",
                 credentialsId: 'ansible', disableHostKeyChecking: true,
+                limit: 'app_server',
                 installation: 'ansible', inventory: 'provision/inventory.ini',
                 playbook: 'provision/playbook.yml'
 
