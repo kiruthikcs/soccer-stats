@@ -9,14 +9,14 @@
       command: ansible-galaxy install -r requirements.yml --roles-path roles
 
 - name: Install Java
-  hosts: app_server
+  hosts: "{{ variable_host | default('app_server') }}"
   become: yes
   become_user: root
   roles:
     - geerlingguy.java
 
 - name: Download Application from Repo
-  hosts: app_server
+  hosts: "{{ variable_host | default('app_server') }}"
   tasks:
     - get_url:
         force: yes
@@ -26,7 +26,7 @@
         path: "/tmp/{{ APP_NAME }}.war"
 
 - name: Setup Spring Boot
-  hosts: app_server
+  hosts: "{{ variable_host | default('app_server') }}"
   become: yes
   become_user: root
   roles: 
