@@ -3,7 +3,12 @@
 // FULL_BUILD -> true/false build parameter to define if we need to run the entire stack for lab purpose only
 final FULL_BUILD = true
 // HOST_PROVISION -> server to run ansible based on provision/inventory.ini
-final HOST_PROVISION = params.HOST_PROVISION
+//final HOST_PROVISION = params.HOST_PROVISION
+// limit: 'app_server' injecting by hardcoded
+final HOST_PROVISION = 'app_server'
+
+ 
+
 
 final GIT_URL = 'https://github.com/Djrohith/soccer-stats.git'
 final NEXUS_URL = '54.218.56.14:8081'
@@ -106,6 +111,7 @@ stage('Deploy') {
             sh "ansible-galaxy install -vvv -r provision/requirements.yml -p provision/roles/"    
                        
             ansiblePlaybook become: true, colorized: true, 
+                limit: "${HOST_PROVISION}",
                 credentialsId: 'ansible', disableHostKeyChecking: true,
                 installation: 'ansible', inventory: 'provision/inventory.ini',
                 playbook: 'provision/playbook.yml'
