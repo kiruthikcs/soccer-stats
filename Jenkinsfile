@@ -112,9 +112,10 @@ stage('Deploy') {
             sh "which ansible"
          
             //sh "ansible -m ping app_server"
-           // sh "ansible-playbook -i provision/inventory.ini provision/playbook.yml --extra-vars variable_host='localhost'"   
+            sh "ansible-playbook -i provision/inventory.ini provision/playbook.yml --extra-vars variable_host='localhost' ARTIFACT_URL=${artifactUrl} APP_NAME='soccer-demo'"       
             
-                       
+               
+         /**
             ansiblePlaybook become: true, colorized: true, 
                 credentialsId: 'ansible', disableHostKeyChecking: true,
                 limit: 'localhost',
