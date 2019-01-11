@@ -1,22 +1,22 @@
 ---
 - name: Install Roles from Galaxy
-  hosts: localhost
-  connection: local
-  become_user: root
+  hosts: 172.31.42.149
+  #connection: local
+  become_user: ansible
   become: yes
   tasks:
     - name: installing ansible-galaxy roles
       command: ansible-galaxy install -r requirements.yml --roles-path roles
 
 - name: Install Java
-  hosts: "{{ variable_host }}"
+  hosts: 172.31.42.149
   become: yes
   become_user: ansible
   roles:
     - geerlingguy.java
 
 - name: Download Application from Repo
-  hosts: "{{ variable_host }}"
+  hosts: 172.31.42.149
   tasks:
     - get_url:
         force: yes
@@ -26,7 +26,7 @@
         path: "/tmp/{{ APP_NAME }}.war"
 
 - name: Setup Spring Boot
-  hosts: "{{ variable_host }}"
+  hosts: 172.31.42.149
   become: yes
   become_user: ansible
   roles: 
