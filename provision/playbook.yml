@@ -9,7 +9,7 @@
       command: ansible-galaxy install -r requirements.yml --roles-path roles
 
 - name: Install Java
-  hosts: app_server
+  hosts: "{{ variable_host }}"
   become: yes
   become_user: root
   roles:
