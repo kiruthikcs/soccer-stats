@@ -119,7 +119,7 @@ stage('Deploy') {
             ansiblePlaybook become: true, colorized: true, 
                 credentialsId: 'ansible', disableHostKeyChecking: true,
                 limit: 'localhost',
-                extras: 'variable_host=\'localhost\' ARTIFACT_URL=${artifactUrl} APP_NAME=\'soccer-demo\',
+                extras: 'variable_host=\'localhost\' ARTIFACT_URL=${artifactUrl} APP_NAME=\'soccer-demo\'',
                 inventory: 'provision/inventory.ini',
                 playbook: 'provision/playbook.yml'
 
