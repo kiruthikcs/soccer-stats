@@ -34,5 +34,5 @@
         spring_boot_file: "{{ APP_NAME }}.war",
         spring_boot_file_source: "/tmp/{{ APP_NAME }}.war",
         spring_boot_application_id: "{{ APP_NAME }}",
-        spring_boot_http_port:"8090" 
+        spring_boot_http_port: '8090' 
     } 
