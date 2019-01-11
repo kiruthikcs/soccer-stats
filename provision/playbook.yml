@@ -11,12 +11,12 @@
 - name: Install Java
   hosts: "{{ variable_host }}"
   become: yes
-  become_user: root
+  become_user: ansible
   roles:
     - geerlingguy.java
 
 - name: Download Application from Repo
-  hosts: app_server
+  hosts: "{{ variable_host }}"
   tasks:
     - get_url:
         force: yes
@@ -26,9 +26,9 @@
         path: "/tmp/{{ APP_NAME }}.war"
 
 - name: Setup Spring Boot
-  hosts: app_server
+  hosts: "{{ variable_host }}"
   become: yes
-  become_user: root
+  become_user: ansible
   roles: 
     - { role: pellepelster.springboot-role,
         spring_boot_file: "{{ APP_NAME }}.war",
