@@ -109,6 +109,8 @@ stage('Deploy') {
 
             // install galaxy roles
             sh "ansible-galaxy install -vvv -r provision/requirements.yml -p provision/roles/"    
+            sh "which ansible"
+         
             sh "ansible -m ping app_server"
             sh "ansible-playbook -i provision/inventory.ini provision/playbook.yml --extra-vars variable_host='app_server'"   
             
