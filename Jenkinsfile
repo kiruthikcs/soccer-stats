@@ -112,12 +112,12 @@ stage('Deploy') {
             sh "which ansible"
          
             //sh "ansible -m ping app_server"
-            sh "ansible-playbook -i provision/inventory.ini provision/playbook.yml --extra-vars variable_host='localhost'"   
+           // sh "ansible-playbook -i provision/inventory.ini provision/playbook.yml --extra-vars variable_host='localhost'"   
             
                        
-            /**ansiblePlaybook become: true, colorized: true, 
+            ansiblePlaybook become: true, colorized: true, 
                 credentialsId: 'ansible', disableHostKeyChecking: true,
-                limit: 'app_server',
+                limit: 'localhost',
                 installation: 'ansible', inventory: 'provision/inventory.ini',
                 playbook: 'provision/playbook.yml'
 
