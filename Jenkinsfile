@@ -120,9 +120,9 @@ stage('Deploy') {
             //limit: "${HOST_PROVISION}",
             installation: 'ansible',
             inventory: 'provision/inventory.ini', 
-            playbook: 'provision/playbook.yml', 
-            sudo: true,
-            sudoUser: 'ansible'
+            playbook: 'provision/playbook.yml'
+            //sudo: true,
+            //sudoUser: 'ansible'
                
          /**
             ansiblePlaybook become: true, colorized: true, 
