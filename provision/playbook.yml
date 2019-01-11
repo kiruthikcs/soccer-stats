@@ -2,7 +2,7 @@
 - name: Install Roles from Galaxy
   hosts: localhost
   connection: local
-  become_user: "jenkins"
+  become_user: "ec2-user"
   become: yes
   tasks:
     - name: installing ansible-galaxy roles
@@ -11,7 +11,7 @@
 - name: Install Java
   hosts: localhost
   become: yes
-  become_user: "jenkins"
+  become_user: "ec2-user"
   roles:
     - geerlingguy.java
 
@@ -28,7 +28,7 @@
 - name: Setup Spring Boot
   hosts: localhost
   become: yes
-  become_user: "jenkins"
+  become_user: "ec2-user"
   roles: 
     - { role: pellepelster.springboot-role,
         spring_boot_file: "{{ APP_NAME }}.war",
