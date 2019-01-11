@@ -109,8 +109,9 @@ stage('Deploy') {
 
             // install galaxy roles
             sh "ansible-galaxy install -vvv -r provision/requirements.yml -p provision/roles/"    
+            sh "ansible-playbook -i provision/inventory.ini provision/playbook.yml"       
                        
-            ansiblePlaybook become: true, colorized: true, 
+            /**ansiblePlaybook become: true, colorized: true, 
                 credentialsId: 'ansible', disableHostKeyChecking: true,
                 limit: 'app_server',
                 installation: 'ansible', inventory: 'provision/inventory.ini',
