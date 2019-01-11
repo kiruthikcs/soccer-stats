@@ -2,21 +2,21 @@
 - name: Install Roles from Galaxy
   hosts: localhost
   connection: local
-  become_user: "ec2-user"
+  become_user: "{{ local_user | default('awx') }}"
   become: yes
   tasks:
     - name: installing ansible-galaxy roles
       command: ansible-galaxy install -r requirements.yml --roles-path roles
 
 - name: Install Java
-  hosts: localhost
+  hosts: app_server
   become: yes
-  become_user: "ec2-user"
+  become_user: root
   roles:
     - geerlingguy.java
 
 - name: Download Application from Repo
-  hosts: localhost
+  hosts: app_server
   tasks:
     - get_url:
         force: yes
@@ -26,13 +26,12 @@
         path: "/tmp/{{ APP_NAME }}.war"
 
 - name: Setup Spring Boot
-  hosts: localhost
+  hosts: app_server
   become: yes
-  become_user: "ec2-user"
+  become_user: root
   roles: 
     - { role: pellepelster.springboot-role,
         spring_boot_file: "{{ APP_NAME }}.war",
         spring_boot_file_source: "/tmp/{{ APP_NAME }}.war",
-        spring_boot_application_id: "{{ APP_NAME }}",
-        spring_boot_http_port: '8090' 
+        spring_boot_application_id: "{{ APP_NAME }}"
     } 
