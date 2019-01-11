@@ -11,7 +11,7 @@
 - name: Install Java
   hosts: "{{ variable_host | default('app_server') }}"
   become: yes
-  become_user: root
+  become_user: jenkins
   roles:
     - geerlingguy.java
 
@@ -28,7 +28,7 @@
 - name: Setup Spring Boot
   hosts: "{{ variable_host | default('app_server') }}"
   become: yes
-  become_user: root
+  become_user: jenkins
   roles: 
     - { role: pellepelster.springboot-role,
         spring_boot_file: "{{ APP_NAME }}.war",
