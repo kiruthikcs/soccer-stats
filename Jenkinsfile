@@ -102,7 +102,7 @@ stage('Deploy') {
         
 
        // http://34.221.40.216:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.2-3/soccer-stats-0.0.2-3.war                           
-        def artifactUrl = "http://${NEXUS_URL}/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.2-${BUILD_NUMBER}/soccer-stats-${BUILD_NUMBER}.war"
+        def artifactUrl = "http://${NEXUS_URL}/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.2-${BUILD_NUMBER}/soccer-stats-0.0.2-${BUILD_NUMBER}.war"
 
         withEnv(["ARTIFACT_URL=${artifactUrl}", "APP_NAME='soccer-demo'"]) {
             echo "The URL is ${env.ARTIFACT_URL} and the app name is ${env.APP_NAME}"
