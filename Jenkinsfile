@@ -121,7 +121,7 @@ stage('Deploy') {
                 //extras: 'ARTIFACT_URL="${artifactUrl}" APP_NAME=soccer-demo',
                 inventory: 'provision/inventory.ini',
                 playbook: 'provision/playbook.yml',
-                sudoUser: 'jenkins' 
+                sudoUser: 'ec2-user' 
                 
             /**ansiblePlaybook colorized: true, 
             credentialsId: 'ssh-jenkins',
