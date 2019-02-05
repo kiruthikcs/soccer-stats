@@ -11,7 +11,7 @@ final HOST_PROVISION = '172.31.42.149'
 
 
 final GIT_URL = 'https://github.com/Djrohith/soccer-stats.git'
-final NEXUS_URL = '54.218.56.14:8081'
+final NEXUS_URL = '54.213.94.195:8081'
 
 stage('Build') {
     node {
@@ -86,7 +86,7 @@ if(FULL_BUILD) {
             nexusArtifactUploader artifacts: [[groupId: 'soccer-versions', 
                                                artifactId: 'soccer-stats', classifier: '',
                                                file: 'target/soccer-stats-0.0.2-${BUILD_NUMBER}.war', type: 'war']],
-                credentialsId: '92a0b40b-83c4-4a1f-a901-a5859bbcb4a4', 
+                credentialsId: 'e19a9825-a8d9-4762-be76-4de575a16141', 
                 groupId: 'br.com.meetup.ansible', nexusUrl: "${NEXUS_URL}", nexusVersion: 'nexus3', 
                 protocol: 'http', repository: 'demoapp-rele', version: '0.0.2-${BUILD_NUMBER}'
 
