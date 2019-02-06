@@ -125,7 +125,7 @@ stage('Deploy') {
             inventory: 'provision/inventory.ini', 
             playbook: 'provision/playbook.yml'
             //sudo: true,
-            sudoUser: 'jenkins'
+            sudoUser: 'ansible'
                
          /**
             ansiblePlaybook become: true, colorized: true, 
