@@ -1,8 +1,8 @@
 ---
 - name: Install Roles from Galaxy
-  hosts: localhost
+  hosts: 172.31.38.57
   connection: local
-  become_user: "{{ local_user | default('awx') }}"
+  become_user: ansible
   become: yes
   tasks:
     - name: installing ansible-galaxy roles
