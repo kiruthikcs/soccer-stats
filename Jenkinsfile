@@ -5,7 +5,7 @@ final FULL_BUILD = true
 // HOST_PROVISION -> server to run ansible based on provision/inventory.ini
 //final HOST_PROVISION = params.HOST_PROVISION
 // limit: 'app_server' injecting by hardcoded
-final HOST_PROVISION = '172.31.42.149'
+final HOST_PROVISION = '172.31.38.57'
 
  
 
@@ -120,12 +120,12 @@ stage('Deploy') {
          
          ansiblePlaybook colorized: true, 
             credentialsId: 'playbook',
-            //limit: "${HOST_PROVISION}",
+            limit: "${HOST_PROVISION}",
             installation: 'ansible',
             inventory: 'provision/inventory.ini', 
             playbook: 'provision/playbook.yml'
-            //sudo: true,
-            //sudoUser: 'ansible'
+            sudo: true,
+            sudoUser: 'jenkins'
                
          /**
             ansiblePlaybook become: true, colorized: true, 
