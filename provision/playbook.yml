@@ -1,7 +1,7 @@
 ---
 - name: Install Roles from Galaxy
-  hosts: app_server
-  connection: app_server
+  hosts: 172.31.38.57
+  connection: local
   become_user: ansible
   become: yes
   tasks:
