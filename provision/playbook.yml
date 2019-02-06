@@ -4,7 +4,6 @@
   connection: local
   become_user: ansible
   become: yes
-  sudo: yes
   tasks:
     - name: installing ansible-galaxy roles
       command: ansible-galaxy install -r requirements.yml --roles-path roles
@@ -18,6 +17,8 @@
 
 - name: Download Application from Repo
   hosts: 172.31.38.57
+  become_user: ansible
+  become: yes
   tasks:
     - get_url:
         force: yes
