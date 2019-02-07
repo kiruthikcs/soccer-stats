@@ -2,7 +2,7 @@
 - name: Install Roles from Galaxy
   hosts: app_server
   connection: local
-  become_user: ansible
+  become_user: root
   become: yes
   tasks:
     - name: installing ansible-galaxy roles
@@ -11,13 +11,13 @@
 - name: Install Java
   hosts: app_server
   become: yes
-  become_user: ansible
+  become_user: root
   roles:
     - geerlingguy.java
 
 - name: Download Application from Repo
   hosts: app_server
-  become_user: ansible
+  become_user: root
   become: yes
   tasks:
     - get_url:
@@ -30,7 +30,7 @@
 - name: Setup Spring Boot
   hosts: app_server
   become: yes
-  become_user: ansible
+  become_user: root
   roles: 
     - { role: pellepelster.springboot-role,
         spring_boot_file: "{{ APP_NAME }}.war",
