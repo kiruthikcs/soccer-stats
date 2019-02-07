@@ -111,6 +111,7 @@ stage('Deploy') {
             //sh "ansible-galaxy install -vvv -r provision/requirements.yml -p provision/roles/"    
          
             sh "which ansible"
+            sh "whoami"
          
           sh "ansible-galaxy install -vvv -r provision/requirements.yml -p provision/roles/" 
          
