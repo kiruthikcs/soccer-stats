@@ -1,7 +1,7 @@
 ---
 - name: Install Roles from Galaxy
   hosts: app_server
-  connection: 172.31.38.57
+  connection: localhost
   become_user: jenkins
   become: yes
   tasks:
