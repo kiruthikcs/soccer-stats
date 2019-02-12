@@ -118,9 +118,10 @@ stage('Deploy') {
             //sh "ansible -m ping app_server"
            // sh "ansible-playbook  provision/playbook.yml --extra-vars \" ARTIFACT_URL=${artifactUrl} APP_NAME='soccer-stats' \" "       
          
-        //sh "ansible-playbook provision/playbook.yml --extra-vars \" APP_NAME=soccer-stats ARTIFACT_URL=http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.2-37/soccer-stats-0.0.2-37.war\" "
+        sh "ansible-playbook provision/playbook.yml --extra-vars \" APP_NAME=soccer-stats ARTIFACT_URL=http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.24-/soccer-stats-0.0.2-24.war\" "
      
-            ansiblePlaybook colorized: true, 
+        /**    
+         ansiblePlaybook colorized: true, 
             credentialsId: 'playbook',
             limit: "${HOST_PROVISION}",
             installation: 'ansible',
@@ -128,7 +129,7 @@ stage('Deploy') {
             playbook: 'provision/playbook.yml', 
             //sudo: true,
             sudoUser: 'root'
-            
+            /**
        
          ansiblePlaybook colorized: true, 
             credentialsId: 'playbook',
