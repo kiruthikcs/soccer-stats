@@ -1,7 +1,7 @@
 ---
 - name: Install Roles from Galaxy
   hosts: app_server
-  connection: local
+  connection: 34.215.164.206
   become_user: root
   become: yes
   tasks:
