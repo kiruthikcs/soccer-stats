@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   become_user: root
-  become: yes
+  //become: yes
   tasks:
     - name: installing ansible-galaxy roles
       command: ansible-galaxy install -r requirements.yml --roles-path roles
