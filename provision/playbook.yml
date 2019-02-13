@@ -1,6 +1,6 @@
 ---
 - name: Install Roles from Galaxy
-  hosts: app_server
+  hosts: localhost
   connection: local
   become_user: root
   become: yes
