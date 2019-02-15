@@ -159,6 +159,5 @@ stage('Deploy') {
             //sudo: true,
             sudoUser: 'jenkins' 
         }
-    
     } 
 }
