@@ -118,7 +118,7 @@ stage('Deploy') {
             sh "ansible -m ping app_server"
            // sh "ansible-playbook  provision/playbook.yml --extra-vars \" ARTIFACT_URL=${artifactUrl} APP_NAME='soccer-stats' \" "       
          
-        //sh "ansible-playbook provision/playbook.yml --extra-vars \" APP_NAME=soccer-stats ARTIFACT_URL=http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.41-/soccer-stats-0.0.2-41.war\" "
+        sh "ansible-playbook provision/playbook.yml --extra-vars \" APP_NAME=soccer-stats ARTIFACT_URL=http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.41-/soccer-stats-0.0.2-41.war\" "
      
          
            // ansiblePlaybook colorized: true, 
@@ -148,16 +148,17 @@ stage('Deploy') {
                 //playbook: 'provision/playbook.yml',
                 //sudoUser: 'ec2-user' 
                 
-            
+            /**
             ansiblePlaybook colorized: true, 
             credentialsId: 'ssh-jenkins',
            // limit: "${HOST_PROVISION}",
             installation: 'ansible',
             inventory: 'provision/inventory.ini', 
-            playbook: 'provision/playbook.yml --extra-vars \" APP_NAME=soccer-stats ARTIFACT_URL=http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.41-/soccer-stats-0.0.2-41.war\" "',
+            playbook: 'provision/playbook.yml 
             //extra-vars: APP_NAME=soccer-stats ARTIFACT_URL=http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.41-/soccer-stats-0.0.2-41.war\" "
             //sudo: true,
             sudoUser: 'jenkins' 
         }
+    
     } 
 }
