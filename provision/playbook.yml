@@ -11,12 +11,12 @@
   become_user: root
   become: yes
   tasks:
-    - get_url:
+    - get_url: 
         force: yes
-        url: "{{ ARTIFACT_URL }}"
-        dest: "/tmp/{{ APP_NAME }}.war"
+        url: http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.2-41/soccer-stats-0.0.2-41.war
+        dest: "/tmp/soccer-stats.war"
     - stat: 
-        path: "/tmp/{{ APP_NAME }}.war"
+        path: "/tmp/soccer-stats.war"
 
 - name: Setup Spring Boot
   hosts: app_server
