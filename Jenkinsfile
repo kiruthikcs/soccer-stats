@@ -148,7 +148,7 @@ stage('Deploy') {
                 //playbook: 'provision/playbook.yml',
                 //sudoUser: 'ec2-user' 
                 
-            /**
+            
             ansiblePlaybook colorized: true, 
             credentialsId: 'ssh-jenkins',
            // limit: "${HOST_PROVISION}",
