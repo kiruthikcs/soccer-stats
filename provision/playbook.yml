@@ -13,7 +13,7 @@
   tasks:
     - get_url: 
         force: yes
-        url: "http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.2-57/soccer-stats-0.0.2-57.war"
+        url: "{{ ARTIFACT_URL }}"
         dest: "/tmp/soccer-stats.war"
     - stat: 
         path: "/tmp/soccer-stats.war"
