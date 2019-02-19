@@ -149,7 +149,7 @@ stage('Deploy') {
                 //sudoUser: 'ec2-user' 
                 
             
-            ansiblePlaybook colorized: true, 
+            ansiblePlaybook ([colorized: true, 
             credentialsId: 'ssh-jenkins',
            // limit: "${HOST_PROVISION}",
             installation: 'ansible',
@@ -157,10 +157,12 @@ stage('Deploy') {
             playbook: 'provision/playbook.yml',
             //extra-vars: APP_NAME=soccer-stats ARTIFACT_URL=http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.41-/soccer-stats-0.0.2-41.war\" "
             //sudo: true,
+             sudoUser: 'jenkins',
              extras: [
-              ARTIFACT_URL : "${env.ARTIFACT_URL}" 
-              ],
-            sudoUser: 'jenkins'  
+              ARTIFACT_URL : env.ARTIFACT_URL 
+              ]
+            ])
+             
            
         }
     } 
