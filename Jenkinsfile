@@ -149,7 +149,7 @@ stage('Deploy') {
                 //sudoUser: 'ec2-user' 
                 
             
-            ansiblePlaybook ([colorized: true, 
+            ansiblePlaybook colorized: true, 
             credentialsId: 'ssh-jenkins',
            // limit: "${HOST_PROVISION}",
             installation: 'ansible',
@@ -161,7 +161,7 @@ stage('Deploy') {
              extras: [
               ARTIFACT_URL : env.ARTIFACT_URL 
               ]
-            ])
+           
              
            
         }
