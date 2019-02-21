@@ -10,7 +10,7 @@ final HOST_PROVISION = '172.31.38.57'
 
 
 final GIT_URL = 'https://github.com/Djrohith/soccer-stats.git'
-final NEXUS_URL = '54.70.187.156:8081'
+final NEXUS_URL = '52.36.218.95:8081'
 
 stage('Build') {
     node {
