@@ -152,7 +152,7 @@ stage('Deploy') {
             credentialsId: 'ssh-jenkins',
            // limit: "${HOST_PROVISION}",
             installation: 'ansible',
-            inventory: 'provision/inventory.ini', 
+            inventory: '/var/lib/jenkins/workspace/inventory.ini', 
             playbook: 'provision/playbook.yml',
             //extra-vars: APP_NAME=soccer-stats ARTIFACT_URL=http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.41-/soccer-stats-0.0.2-41.war\" "
             //sudo: true,
