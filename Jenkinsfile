@@ -85,7 +85,7 @@ if(FULL_BUILD) {
             nexusArtifactUploader artifacts: [[groupId: 'soccer-versions', 
                                                artifactId: 'soccer-stats', classifier: '',
                                                file: 'target/soccer-stats-0.0.2-${BUILD_NUMBER}.war', type: 'war']],
-                credentialsId: '5080969a-cddf-4cf0-8828-2d70f67c86b1', 
+                credentialsId: 'a368254b-80d5-4b92-9b53-85a03ffdc966', 
                 groupId: 'br.com.meetup.ansible', nexusUrl: "${NEXUS_URL}", nexusVersion: 'nexus3', 
                 protocol: 'http', repository: 'KiruthikaRepo', version: '0.0.2-${BUILD_NUMBER}'
 
