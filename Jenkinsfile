@@ -76,7 +76,7 @@ if(FULL_BUILD) {
     }
 }**/
 
-
+/**
 if(FULL_BUILD) {
     stage('Artifact Upload') {
         node {
@@ -93,7 +93,7 @@ if(FULL_BUILD) {
         }
     }
 }
-
+**/
 
 stage('Deploy') {
     node {
