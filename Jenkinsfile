@@ -74,7 +74,7 @@ if(FULL_BUILD) {
             input 'Do I have your approval for deployment?'
         }
     }
-}**/
+}
 
 
 if(FULL_BUILD) {
@@ -165,4 +165,4 @@ stage('Deploy') {
            
         }
     } 
-}
+}**/
